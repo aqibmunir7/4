@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="Albatross Café — speciality-coffee cafe and micro bakery at 60 North Street, Southville, Bristol. Open Wednesday to Saturday, 8.45am to 4pm. Clifton Coffee, nitro coffee, matcha, and pastries from the micro bakery." />
+<link rel="icon" href="data:," />
+<title>Albatross Café — Bristol | Speciality Coffee &amp; Micro Bakery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+  :root{
+    --bg:#f8f2e8; --bg-raise:#fffdf7; --bg-sink:#efe4d0;
+    --ink:#2b1d12; --ink-soft:#6f5d49; --line:#e3d7bf;
+    --butter:#c07a2e; --butter-deep:#9a5c1d; --berry:#7a3b26;
+    --dark:#2b1d12; --dark-ink:#f8f2e8; --dark-soft:#d9c7ab;
+    --radius:16px; --font-body:'Archivo',system-ui,sans-serif; --font-display:'Fraunces',Georgia,serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font-body);background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  ::selection{background:var(--butter);color:#fff}
+  .wrap{width:min(1160px,100% - 40px);margin-inline:auto}
+  h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.02;margin:0;letter-spacing:-.01em}
+  .kicker{font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--berry)}
+  section{padding:84px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:.95rem;text-decoration:none;padding:15px 26px;border-radius:999px;border:2px solid transparent;transition:transform .15s ease,background .15s ease;cursor:pointer}
+  .btn-butter{background:var(--butter);color:#fff}
+  .btn-butter:hover{background:var(--butter-deep);transform:translateY(-2px)}
+  .btn-ghost{border-color:var(--ink);background:transparent}
+  .btn-ghost:hover{transform:translateY(-2px)}
+  header{position:sticky;top:0;z-index:60;background:rgba(248,242,232,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .brand{font-family:var(--font-display);font-size:1.7rem;font-weight:700;text-decoration:none;line-height:1}
+  .brand small{display:block;font-family:var(--font-body);font-size:.62rem;font-weight:700;letter-spacing:.22em;color:var(--ink-soft);margin-top:3px}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:.92rem}
+  .nav-links a:hover{color:var(--berry)}
+  .nav-cta{padding:11px 20px;font-size:.88rem}
+  .burger{display:none;background:none;border:0;font-size:1.35rem;color:var(--ink);cursor:pointer;padding:6px}
+  @media (max-width:820px){
+    .nav-links{position:absolute;top:100%;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;padding:18px 20px 22px;gap:16px;display:none}
+    .nav-links.open{display:flex}
+    .burger{display:block}
+    header .wrap{position:relative}
+  }
+  .hero{padding:0 0 0;background:var(--dark);color:var(--dark-ink);overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:640px}
+  @media (max-width:900px){.hero-grid{grid-template-columns:1fr;min-height:0}}
+  .hero-copy{padding:76px 0 64px}
+  .hero-copy .kicker{color:#e0a866}
+  .hero h1{font-size:clamp(3rem,7.5vw,5.6rem);margin:18px 0 16px}
+  .hero h1 em{font-style:italic;color:#e0a866}
+  .hero-sub{max-width:520px;font-size:1.13rem;color:#eadfc9}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin:30px 0 34px}
+  .btn-outline-w{border-color:rgba(255,255,255,.7);color:#fff;background:transparent}
+  .btn-outline-w:hover{border-color:#e0a866;color:#e0a866}
+  .hero-meta{display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.22);padding-top:22px;font-size:.95rem}
+  .hero-meta div b{display:block;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#e0a866}
+  .hero-photo{position:relative;min-height:420px}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(43,29,18,.55),transparent 55%)}
+  .open-pill{position:absolute;z-index:2;left:20px;bottom:20px;background:var(--bg-raise);color:var(--ink);border-radius:999px;padding:10px 16px;font-weight:800;font-size:.9rem;display:flex;gap:8px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+  .open-pill .dot{width:9px;height:9px;border-radius:50%;background:#2e7d32}
+  .open-pill.closed .dot{background:#b3261e}
+  .strip{background:var(--butter);color:#fff;overflow:hidden;padding:13px 0;border-block:3px solid #2b1d12}
+  .strip-track{display:flex;width:max-content;animation:scrollx 28s linear infinite}
+  .strip span{font-family:var(--font-display);font-weight:700;font-size:1.15rem;white-space:nowrap;padding-right:16px}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion: reduce){.strip-track{animation:none}}
+  .sec-head{max-width:720px;margin-bottom:44px}
+  .sec-head h2{font-size:clamp(2.1rem,5vw,3.3rem);margin:12px 0 14px}
+  .sec-head p{color:var(--ink-soft);font-size:1.05rem;margin:0}
+  .bake-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media (max-width:900px){.bake-grid{grid-template-columns:1fr 1fr}}
+  @media (max-width:560px){.bake-grid{grid-template-columns:1fr}}
+  .bake{background:var(--bg-raise);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .bake img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .bake-body{padding:22px}
+  .bake-body h3{font-size:1.4rem;margin-bottom:6px}
+  .bake-body p{margin:0;color:var(--ink-soft);font-size:.96rem}
+  .bake-tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--berry);margin-bottom:8px}
+  .bake-note{margin-top:28px;background:var(--bg-sink);border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px;font-size:.95rem;color:var(--ink-soft)}
+  .bake-note b{color:var(--ink)}
+  .visit-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
+  @media (max-width:900px){.visit-grid{grid-template-columns:1fr}}
+  .hours{border:2px solid var(--ink);border-radius:18px;overflow:hidden;background:var(--bg-raise)}
+  .hours-head{background:var(--ink);color:var(--bg);padding:18px 24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+  .hours-head b{font-family:var(--font-display);font-size:1.25rem;font-weight:700}
+  .hours-head span{background:var(--butter);color:#fff;font-weight:800;border-radius:999px;padding:5px 14px;font-size:.9rem}
+  .hours-row{display:flex;justify-content:space-between;gap:12px;padding:16px 24px;border-top:1px solid var(--line)}
+  .hours-row:first-of-type{border-top:0}
+  .hours-row.today{background:#fdf3d7;font-weight:800}
+  .hours-row .day{font-weight:700}
+  .hours-row .time{font-family:var(--font-display);font-size:1.15rem}
+  .hours-foot{padding:16px 24px;background:var(--bg-sink);font-size:.92rem;color:var(--ink-soft)}
+  .visit-photo{border-radius:18px;overflow:hidden}
+  .visit-photo img{aspect-ratio:4/3;object-fit:cover;width:100%}
+  .visit-list{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:12px}
+  .visit-list li{display:flex;gap:12px;align-items:flex-start;font-size:1rem}
+  .visit-list i{color:var(--berry);margin-top:4px}
+  .story{background:var(--bg-sink)}
+  .story-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+  @media (max-width:900px){.story-grid{grid-template-columns:1fr}}
+  .story-photo{border-radius:18px;overflow:hidden}
+  .story-photo img{aspect-ratio:4/3.4;object-fit:cover;width:100%}
+  .story-copy h2{font-size:clamp(2.1rem,5vw,3.2rem);margin:12px 0 16px}
+  .story-copy p{color:var(--ink-soft);margin:0 0 14px}
+  .story-copy p strong{color:var(--ink)}
+  .ig-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  @media (max-width:700px){.ig-grid{grid-template-columns:1fr}}
+  .ig-card{background:var(--bg-raise);border:1px solid var(--line);border-radius:var(--radius);padding:28px;text-decoration:none;display:block}
+  .ig-card:hover{border-color:var(--ink)}
+  .ig-card i.fa-instagram{font-size:1.7rem;color:var(--berry)}
+  .ig-card h3{font-size:1.5rem;margin:12px 0 6px}
+  .ig-card p{margin:0;color:var(--ink-soft)}
+  .ig-card span{display:inline-block;margin-top:14px;font-weight:800;font-size:.9rem}
+  .faq-list{max-width:820px}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item:first-child{border-top:2px solid var(--ink)}
+  .faq-q{width:100%;background:none;border:0;text-align:left;padding:22px 4px;font-family:var(--font-body);font-size:1.08rem;font-weight:800;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq-q i{transition:transform .18s ease;color:var(--berry)}
+  .faq-item.open .faq-q i{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+  .faq-a p{margin:0;padding:0 4px 22px;color:var(--ink-soft);max-width:680px}
+  .cta{background:var(--dark);color:var(--dark-ink)}
+  .cta h2{font-size:clamp(2.4rem,6vw,4.2rem);margin-bottom:16px}
+  .cta h2 em{font-style:italic;color:#e0a866}
+  .cta p{color:var(--dark-soft);max-width:560px;font-size:1.08rem}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+  footer{padding:34px 0 40px;border-top:1px solid var(--line)}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:20px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none;font-weight:700;font-size:.92rem}
+  .foot small{color:var(--ink-soft)}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#top">Albatross<small>Café — Southville, Bristol</small></a>
+      <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+      <div class="nav-links" id="navLinks">
+        <a href="#coffee">Coffee</a>
+        <a href="#visit">Visit</a>
+        <a href="#story">Our story</a>
+        <a href="#instagram">Instagram</a>
+        <a class="btn btn-butter nav-cta" href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">Follow on Instagram <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="kicker">Speciality coffee &amp; micro bakery — North Street</p>
+        <h1>Slow coffee,<br />warm <em>corners.</em></h1>
+        <p class="hero-sub">Albatross is a laid-back, sunlit neighbourhood coffee shop on North Street, Southville. Speciality coffee, pastries from the micro bakery, and cosy corners to stay for hours — dog friendly, too.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-butter" href="#coffee">See what we serve <i class="fa-solid fa-arrow-down"></i></a>
+          <a class="btn btn-outline-w" href="https://www.google.com/maps/search/?api=1&amp;query=60+North+Street%2C+Southville%2C+Bristol" target="_blank" rel="noopener">Find us <i class="fa-solid fa-location-dot"></i></a>
+        </div>
+        <div class="hero-meta">
+          <div><b>Address</b>60 North Street, Southville</div>
+          <div><b>Hours</b>Wed–Sat, 8.45am–4pm</div>
+          <div><b>Today</b><span id="todayStatus">Check Instagram for today</span></div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="A cup of speciality coffee on a cafe table" />
+        <div class="open-pill" id="openPill"><span class="dot"></span><span id="openText">Open Wed–Sat, 8.45–4</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="strip" aria-hidden="true"><div class="strip-track">
+    <span>Speciality coffee&nbsp;·&nbsp;</span><span>Micro bakery&nbsp;·&nbsp;</span><span>Nitro coffee&nbsp;·&nbsp;</span><span>Iced matcha&nbsp;·&nbsp;</span><span>Dog friendly&nbsp;·&nbsp;</span>
+    <span>Speciality coffee&nbsp;·&nbsp;</span><span>Micro bakery&nbsp;·&nbsp;</span><span>Nitro coffee&nbsp;·&nbsp;</span><span>Iced matcha&nbsp;·&nbsp;</span><span>Dog friendly&nbsp;·&nbsp;</span>
+  </div></div>
+
+  <section id="coffee">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">What we serve</p>
+        <h2>Coffee first, pastries alongside</h2>
+        <p>What is on changes with the season and the bake. These are the drinks and bakes Albatross is known for on Instagram — check <a href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">@albatrosscafebristol</a> before you come, to see what is pouring today.</p>
+      </div>
+      <div class="bake-grid">
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Espresso being poured" />
+          <div class="bake-body"><span class="bake-tag">House espresso</span><h3>Cadence Espresso</h3><p>Clifton Coffee Cadence Espresso — notes of wine gums, marmalade and juniper, as served at Albatross.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Cold brew coffee in a glass" />
+          <div class="bake-body"><span class="bake-tag">Cold brew</span><h3>Nitro coffee</h3><p>Smooth cold brew, served as nitro coffee with vanilla cold foam.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Iced matcha drink" />
+          <div class="bake-body"><span class="bake-tag">Iced</span><h3>Iced matcha &amp; vanilla cold foam</h3><p>Iced matcha with vanilla cold foam — one of the iced drinks from the Albatross counter.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="A cup of black coffee" />
+          <div class="bake-body"><span class="bake-tag">Bright &amp; bitter</span><h3>Espresso tonic</h3><p>Espresso tonic — espresso over tonic, served cold. Check Instagram for the current drinks list.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1542990253-a781e04c0082?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Hot chocolate with a cookie" />
+          <div class="bake-body"><span class="bake-tag">Not coffee</span><h3>Raw cacao &amp; rose</h3><p>Raw cacao and rose, served with a pecan pie cookie — the non-coffee drink from the Albatross counter.</p></div>
+        </article>
+        <article class="bake">
+          <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Fresh pastries on a tray" />
+          <div class="bake-body"><span class="bake-tag">Micro bakery</span><h3>Pastries</h3><p>Pastries from the micro bakery, baked in the shop. What is on the counter changes — Instagram has the day’s bake.</p></div>
+        </article>
+      </div>
+      <div class="bake-note"><b>No menu online yet?</b> That is the point of this page. Right now the menu, hours and bookings live only on Instagram and listings. Ask in the shop or send a DM to <a href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">@albatrosscafebristol</a> for today’s menu.</div>
+    </div>
+  </section>
+
+  <section id="visit" style="padding-top:0">
+    <div class="wrap visit-grid">
+      <div>
+        <p class="kicker">Visit</p>
+        <h2 style="font-size:clamp(2.1rem,5vw,3.3rem);margin:12px 0 14px">60 North Street,<br />Southville, Bristol</h2>
+        <p style="color:var(--ink-soft)">A neighbourhood coffee shop on North Street. Come Wednesday to Saturday, 8.45am to 4pm — and stay a while.</p>
+        <ul class="visit-list">
+          <li><i class="fa-solid fa-location-dot"></i><span><b>60 North Street, Southville, Bristol</b><br /><a href="https://www.google.com/maps/search/?api=1&amp;query=60+North+Street%2C+Southville%2C+Bristol" target="_blank" rel="noopener">Open in Google Maps</a></span></li>
+          <li><i class="fa-solid fa-clock"></i><span><b>Wednesday–Saturday, 8.45am–4pm</b><br />Closed Sunday, Monday and Tuesday.</span></li>
+          <li><i class="fa-solid fa-paw"></i><span><b>Dog friendly</b><br />Dogs are welcome at Albatross — it is a neighbourhood cafe, made to stay in.</span></li>
+          <li><i class="fa-solid fa-camera"></i><span><b>Today’s menu is on Instagram</b><br /><a href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">@albatrosscafebristol</a> — drinks, bakes and opening days are posted there first.</span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="hours">
+          <div class="hours-head"><b>Opening hours</b><span>Wed–Sat</span></div>
+          <div class="hours-row" data-day="0"><span class="day">Sunday</span><span>Closed</span></div>
+          <div class="hours-row" data-day="1"><span class="day">Monday</span><span>Closed</span></div>
+          <div class="hours-row" data-day="2"><span class="day">Tuesday</span><span>Closed</span></div>
+          <div class="hours-row" data-day="3"><span class="day">Wednesday</span><span class="time">8.45am – 4pm</span></div>
+          <div class="hours-row" data-day="4"><span class="day">Thursday</span><span class="time">8.45am – 4pm</span></div>
+          <div class="hours-row" data-day="5"><span class="day">Friday</span><span class="time">8.45am – 4pm</span></div>
+          <div class="hours-row" data-day="6"><span class="day">Saturday</span><span class="time">8.45am – 4pm</span></div>
+          <div class="hours-foot">Hours from the café’s Instagram bio. If a bank holiday or an event changes them, Instagram is the first place it is posted.</div>
+        </div>
+        <div class="visit-photo" style="margin-top:18px"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="Inside a sunlit neighbourhood cafe" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="story" class="story">
+    <div class="wrap story-grid">
+      <div class="story-photo"><img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="People sitting with coffee in a cafe" /></div>
+      <div class="story-copy">
+        <p class="kicker">Our story</p>
+        <h2>A neighbourhood cafe, run by Imogen &amp; Louie</h2>
+        <p>Albatross is run by <strong>Imogen &amp; Louie</strong> — a speciality-coffee cafe and micro bakery on North Street, Southville.</p>
+        <p>It is the kind of place people come back to: sunlit, laid-back, with cosy corners to stay for hours over a coffee and a pastry. Dogs are welcome, and the drinks list changes with what is pouring.</p>
+        <p>If you have only seen Albatross on Instagram, this page is the missing piece: the address, the hours, and what to order when you get there.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="instagram">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="kicker">Follow along</p>
+        <h2>Instagram is where it happens</h2>
+        <p>Daily drinks, bakes and opening days are posted on Instagram first.</p>
+      </div>
+      <div class="ig-grid">
+        <a class="ig-card" href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i><h3>@albatrosscafebristol</h3><p>The café. 60 North Street, Southville. Today’s drinks, bakes and opening days.</p><span>Follow the café <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+        <a class="ig-card" href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">
+          <i class="fa-solid fa-comment"></i><h3>Message the café</h3><p>Menu, bookings and catering are on Instagram — send a DM to ask, and gift cards are available through the link in the Instagram bio.</p><span>Send a DM <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap faq-list">
+      <div class="faq-item"><button class="faq-q" type="button">What time are you open? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Wednesday to Saturday, 8.45am to 4pm. Closed Sunday, Monday and Tuesday.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Where is Albatross? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>60 North Street, Southville, Bristol. Open Wed–Sat, 8.45am–4pm.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Are dogs welcome? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Yes — Albatross is dog friendly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Is there a menu online? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Not yet — the menu lives only on Instagram and listings. Check <a href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">@albatrosscafebristol</a> for today’s drinks and bakes, or ask in the shop.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Do you sell gift cards? <i class="fa-solid fa-plus"></i></button><div class="faq-a"><p>Yes — e-gift cards are available through the link in the café’s Instagram bio.</p></div></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap">
+      <h2>Come for coffee.<br /><em>Stay for hours.</em></h2>
+      <p>60 North Street, Southville, Bristol — Wednesday to Saturday, 8.45am to 4pm. Check Instagram for today’s menu before you set off.</p>
+      <div class="cta-row">
+        <a class="btn btn-butter" href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">Check today’s menu <i class="fa-brands fa-instagram"></i></a>
+        <a class="btn btn-outline-w" href="https://www.google.com/maps/search/?api=1&amp;query=60+North+Street%2C+Southville%2C+Bristol" target="_blank" rel="noopener">Get directions</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div><a class="brand" href="#top" style="font-size:1.3rem">Albatross</a><br /><small>60 North Street, Southville, Bristol · Wed–Sat, 8.45am–4pm</small></div>
+    <div class="foot-links">
+      <a href="https://www.instagram.com/albatrosscafebristol" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <small>Preview site — menu and hours from Albatross’s Instagram. No prices listed; ask in the shop.</small>
+  </div>
+</footer>
+<script>
+  var burger=document.getElementById('burger'), nav=document.getElementById('navLinks');
+  if(burger){burger.addEventListener('click',function(){var o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o?'true':'false');});}
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.parentElement, ans=item.querySelector('.faq-a'), open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');i.querySelector('.faq-a').style.maxHeight='0';});
+      if(!open){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+    });
+  });
+  (function(){
+    var now=new Date(), day=now.getDay(), mins=now.getHours()*60+now.getMinutes();
+    var openDay=day>=3&&day<=6, openTime=mins>=525&&mins<960, isOpen=openDay&&openTime;
+    var pill=document.getElementById('openPill'), txt=document.getElementById('openText'), today=document.getElementById('todayStatus');
+    document.querySelectorAll('.hours-row').forEach(function(r){if(parseInt(r.getAttribute('data-day'),10)===day){r.classList.add('today');}});
+    if(pill){pill.classList.toggle('closed',!isOpen); txt.textContent=isOpen?'Open now — until 4pm':(openDay?'Closed now — opens 8.45am':'Closed today — opens Wednesday 8.45am');}
+    if(today){today.textContent=isOpen?'Open now, until 4pm':(openDay?'Closed now, opens 8.45am':'Closed today');}
+  })();
+</script>
+</body>
+</html>
